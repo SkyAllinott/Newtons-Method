@@ -2,7 +2,7 @@ import autograd.numpy as np
 from autograd import grad
 
 def fun(x):
-    y = x**(1./3.)
+    y = x**(1./3.)  # Input function here
     return y
 gradient = grad(fun)
 
