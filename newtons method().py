@@ -1,12 +1,7 @@
 import autograd.numpy as np
 from autograd import grad
 
-def fun(x):
-    y = x**(1./3.)  # Input function here
-    return y
-gradient = grad(fun)
-
-def newton(initial_guess, epsilon, iterations):
+def newton(fun, gradient, initial_guess, epsilon, iterations):
     xn = initial_guess
     if isinstance(fun(xn), complex):
         print('Complex, try a positive initial guess.')
@@ -22,5 +17,8 @@ def newton(initial_guess, epsilon, iterations):
             xn = xn - fun(xn)/gradient(float(xn))
         print('Exceed Max Iterations. No Solution Found.')
 
-print(newton(100, 1e-12, 100))
-
+def fun(x):
+    y = x**3+x**2-10
+    return y
+gradient = grad(fun)
+print(newton(fun, gradient, 100, 1e-12, 100))
