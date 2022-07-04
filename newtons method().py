@@ -18,7 +18,7 @@ def newton(fun, gradient, initial_guess, epsilon, iterations):
         print('Exceed Max Iterations. No Solution Found.')
 
 def fun(x):
-    y = x**3+x**2-10
+    y = np.sin(x)+x**2-20
     return y
 gradient = grad(fun)
 print(newton(fun, gradient, 100, 1e-12, 100))
